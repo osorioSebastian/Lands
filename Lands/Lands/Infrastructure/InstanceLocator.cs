@@ -7,7 +7,7 @@ namespace Lands.Infrastructure
 
         #region Properties
 
-        public MainViewModels Main
+        public MainViewModel Main
         {
             get;
             set;
@@ -18,7 +18,7 @@ namespace Lands.Infrastructure
         #region Contructors
         public InstanceLocator()
         {
-            this.Main = new MainViewModels();
+            this.Main = new MainViewModel();
         }
         #endregion
     }
