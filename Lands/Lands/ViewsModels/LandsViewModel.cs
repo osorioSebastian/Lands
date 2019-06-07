@@ -4,6 +4,9 @@ namespace Lands.ViewsModels
     using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
+    using System.Linq;
+    using System.Windows.Input;
+    using GalaSoft.MvvmLight.Command;
     using Models;
     using Services;
     using Xamarin.Forms;
@@ -17,6 +20,13 @@ namespace Lands.ViewsModels
         #region Attributes
 
         private ObservableCollection<Land> lands;
+
+        private bool isRefrehing;
+
+        private string filter;
+
+        private List<Land> landsList;
+
 
         #endregion
 
@@ -35,6 +45,30 @@ namespace Lands.ViewsModels
 
         }
 
+        public bool IsRefrehing
+        {
+            get
+            {
+                return this.isRefrehing;
+            }
+            set
+            {
+                SetValue(ref this.isRefrehing, value);
+            }
+
+        }
+
+        public string Filter
+        {
+            get
+            {
+                return this.filter;
+            }
+            set
+            {
+                SetValue(ref this.filter, value);
+            }
+        }
         #endregion
 
         #region Constructor
@@ -50,10 +84,13 @@ namespace Lands.ViewsModels
 
         private async void LoadLands()
         {
+            this.IsRefrehing = true;
             var connection = await this.apiService.CheckConnection();
+
 
             if (!connection.IsSuccess) 
             {
+                this.IsRefrehing = false;
                 await Application.Current.MainPage.DisplayAlert(
                     "Error",
                     connection.Message,
@@ -67,6 +104,8 @@ namespace Lands.ViewsModels
                 "/v2/all");
 
             if (!response.IsSuccess) {
+
+                this.IsRefrehing = false;
                 await Application.Current.MainPage.DisplayAlert(
                     "Error",
                     response.Message,
@@ -75,10 +114,50 @@ namespace Lands.ViewsModels
                 return;
             }
 
-            var list = (List<Land>)response.Result;
-            this.Lands = new ObservableCollection<Land>(list);
+            this.landsList = (List<Land>)response.Result;
+            this.Lands = new ObservableCollection<Land>(this.landsList);
+            this.IsRefrehing = false;
+        }
+        #endregion
+
+        #region Commands
+        public ICommand RefreshCommand
+        { 
+            get
+            {
+                return new RelayCommand(LoadLands);
+            
+            }
+        
         }
 
+        public ICommand SearchCommand
+        {
+            get
+            {
+                return new RelayCommand(Search);
+
+            }
+
+        }
+
+        private void Search()
+        {
+            if(string.IsNullOrEmpty(this.Filter))
+            {
+                this.lands = new ObservableCollection<Land>(this.landsList);    
+            
+            }
+            else
+            {
+                this.Lands = new ObservableCollection<Land>(
+                    this.landsList.Where(l => l.Name.ToLower().Contains(this.Filter.ToLower())));
+
+
+            }
+        }
         #endregion
+
+
     }
 }

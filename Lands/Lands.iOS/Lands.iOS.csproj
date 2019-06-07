@@ -142,5 +142,6 @@
     <BundleResource Include="Resources\facebook.png" />
     <BundleResource Include="Resources\instagram.png" />
     <BundleResource Include="Resources\twitter.png" />
+    <BundleResource Include="Resources\ic_chevron_right.png" />
   </ItemGroup>
 </Project>

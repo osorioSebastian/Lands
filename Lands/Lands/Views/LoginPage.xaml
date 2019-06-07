@@ -43,7 +43,8 @@
                         Keyboard="Email"
                         Placeholder="Enter your E-mail"
                         PlaceholderColor="White"
-                        Text="{Binding Email, Mode=TwoWay}"/>
+                        Text="{Binding Email, Mode=TwoWay}"
+                        VerticalOptions="Center"/>
                     
                     <Label  
                         FontSize="Large" 
@@ -61,7 +62,8 @@
                         IsPassword="true"
                         Placeholder="Enter your password"
                         PlaceholderColor="White"
-                        Text="{Binding Password,Mode=TwoWay}"/>
+                        Text="{Binding Password,Mode=TwoWay}"
+                        VerticalOptions="Center"/>
                     
                 </Grid>
                 </StackLayout>
@@ -120,13 +122,13 @@
                     
                 </StackLayout>
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="10">
-                  <!--  <Image 
+                   <!-- <Image 
                         WidthRequest="80"
                         Source="facebook"/>-->
-                  <!--  <Image
+                   <!-- <Image
                         WidthRequest="80"
                         Source="instagram"/>-->
-                   <!-- <Image
+                  <!-- <Image
                         WidthRequest="80"
                         Source="twitter"/>-->
                     
