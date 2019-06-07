@@ -87,10 +87,6 @@ namespace Lands.ViewsModels
             }
         }
 
-
-
-
-
         #endregion
 
         #region Constructor
