@@ -4,6 +4,7 @@ namespace Lands.ViewsModels
     using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
+    using System.Diagnostics;
     using System.Linq;
     using System.Windows.Input;
     using GalaSoft.MvvmLight.Command;
@@ -76,6 +77,8 @@ namespace Lands.ViewsModels
         {
             this.apiService = new ApiService();
             this.LoadLands();
+
+            Debug.Write("aa" + this.lands);
         }
 
         #endregion
@@ -118,6 +121,22 @@ namespace Lands.ViewsModels
             this.Lands = new ObservableCollection<Land>(this.landsList);
             this.IsRefrehing = false;
         }
+
+        private void Search()
+        {
+            if (string.IsNullOrEmpty(this.Filter))
+            {
+                this.lands = new ObservableCollection<Land>(this.landsList);
+
+            }
+            else
+            {
+                this.Lands = new ObservableCollection<Land>(
+                    this.landsList.Where(l => l.Name.ToLower().Contains(this.Filter.ToLower())));
+
+
+            }
+        }
         #endregion
 
         #region Commands
@@ -141,21 +160,8 @@ namespace Lands.ViewsModels
 
         }
 
-        private void Search()
-        {
-            if(string.IsNullOrEmpty(this.Filter))
-            {
-                this.lands = new ObservableCollection<Land>(this.landsList);    
-            
-            }
-            else
-            {
-                this.Lands = new ObservableCollection<Land>(
-                    this.landsList.Where(l => l.Name.ToLower().Contains(this.Filter.ToLower())));
 
-
-            }
-        }
+       
         #endregion
 
 

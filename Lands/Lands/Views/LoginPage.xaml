@@ -8,7 +8,8 @@
         <ScrollView 
             BindingContext="{Binding Login}">
              <StackLayout Padding="10,20,10,5" BackgroundColor="Silver">
-               <StackLayout>
+               <StackLayout
+                    VerticalOptions="CenterAndExpand">
                 <Label 
                     FontSize="25" 
                     FontAttributes="Bold" 
@@ -20,7 +21,8 @@
                     Source="onu_vector_logo"
                     WidthRequest="200"/>
                 
-                <Grid>
+                <Grid
+                    VerticalOptions="CenterAndExpand">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="2*"/>
@@ -72,7 +74,9 @@
                     VerticalOptions="CenterAndExpand">
                     
                 </ActivityIndicator >
-                <StackLayout Orientation="Horizontal">
+                <StackLayout 
+                    Orientation="Horizontal"
+                    VerticalOptions="CenterAndExpand">
                    
                     <Label
                         FontSize="15"
@@ -117,22 +121,24 @@
                         IsEnabled="{Binding IsEnable,Mode=TwoWay}"
                         Text="Register"
                         TextColor="White"/>
-                    
-                    
-                    
+                  
                 </StackLayout>
-                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="10">
-                   <!-- <Image 
+              <!--  <StackLayout
+                    Orientation="Horizontal" 
+                    HorizontalOptions="Center" 
+                    Margin="10"
+                    VerticalOptions="EndAndExpand">
+                    <Image 
                         WidthRequest="80"
-                        Source="facebook"/>-->
-                   <!-- <Image
+                        Source="facebook"/>
+                    <Image
                         WidthRequest="80"
-                        Source="instagram"/>-->
-                  <!-- <Image
+                        Source="instagram"/>
+                   <Image
                         WidthRequest="80"
-                        Source="twitter"/>-->
+                        Source="twitter"/>
                     
-                </StackLayout>
+                </StackLayout>-->
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

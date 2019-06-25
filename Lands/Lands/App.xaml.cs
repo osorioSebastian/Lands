@@ -17,7 +17,7 @@ namespace Lands
         }
         #endregion
 
-        #region Metodfos
+        #region Metodos
         protected override void OnStart()
         {
             // Handle when your app starts

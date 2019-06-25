@@ -10,7 +10,7 @@ namespace Lands.Models
         public string Iso6391 { get; set; }
 
         [JsonProperty(PropertyName = "iso639_2")]
-        public string iso6392 { get; set; }
+        public string Iso6392 { get; set; }
 
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }

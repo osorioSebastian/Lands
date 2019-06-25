@@ -15,12 +15,10 @@
                 
             </SearchBar>
             <ListView 
-                BackgroundColor="Silver"
                 HasUnevenRows="true" 
                 IsPullToRefreshEnabled="true"
                 IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}"
                 ItemsSource="{Binding Lands}"
-                SeparatorVisibility="None"
                 RefreshCommand="{Binding RefreshCommand}">
                 <ListView.ItemTemplate>
                     <DataTemplate>

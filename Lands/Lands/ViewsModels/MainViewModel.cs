@@ -1,4 +1,5 @@
-﻿using System;
+﻿using System.Diagnostics;
+
 namespace Lands.ViewsModels
 {
     public class MainViewModel
@@ -29,7 +30,8 @@ namespace Lands.ViewsModels
         private static MainViewModel instance;
 
         public static MainViewModel GetInstance()
-        { 
+        {
+            Debug.Write(instance);
             if(instance == null)
             {
                 return new MainViewModel();

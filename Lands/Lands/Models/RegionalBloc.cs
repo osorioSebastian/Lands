@@ -10,7 +10,7 @@ namespace Lands.Models
         [JsonProperty(PropertyName = "acronym")]
         public string Acronym { get; set; }
 
-        [JsonProperty(PropertyName = "code")]
+        [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
 
     }
